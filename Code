@@ -1,0 +1,205 @@
+//Draws the sky (background) blue. -Freddie
+penColor("SkyBlue");
+dot(1000);
+//Draws the Scenery -Freddie
+scenery();
+function scenery() {
+  Platform();
+  river();
+  drawMountains();
+  Sun(207, 189, 31);
+  DrawsunBeams(255, 239, 94);
+  drawclouds(70);
+  drawrocks();
+  drawtrees();
+  drawleaves();
+}
+//Draws a platform to walk on. -Freddie
+function Platform() {
+  penUp();
+  turnLeft(90);
+  moveTo(320, 419);
+  penRGB(137, 196, 49, 1);
+  penWidth(100);
+  penDown();
+  moveForward(320);
+  penUp();
+}
+//Draws three mountains altogether in the scene. -Ashly 
+function drawMountains() {
+  moveTo(159, 350);
+  penDown();
+  turnTo(0);
+  DrawMountain(180);
+  moveTo(246, 350);
+  penDown();
+  turnRight(90);
+  turnTo(0);
+  DrawMountain(180);
+  moveTo(330, 350);
+  penDown();
+  turnRight(90);
+  turnTo(0);
+  DrawMountain(180);
+  penUp();
+}
+//Draws one mountain in the scene. -Ashly 
+function DrawMountain(size) {
+  penRGB(133, 107, 72, 0.98);
+  penWidth(50);
+  turnLeft(90);
+  moveForward(size);
+  turnRight(120);
+  moveForward(size);
+  turnRight(120);
+  moveForward(size);
+  penUp();
+  penWidth(40);
+  turnLeft(180);
+  moveForward(70);
+  penWidth(50);
+  turnLeft(60);
+  moveForward(55);
+  dot(60);
+  penUp();
+}
+// Draws the sun. -Freddie
+function Sun(red, green, blue) {
+  penRGB(red, green, blue, 0.75);
+  moveTo(306, 27);
+  penDown();
+  dot(30);
+  penUp();
+}
+//Draw the sunbeams off the sun. -Freddie
+function DrawsunBeams(red, green, blue) {
+  for (var i = 160 ; i < 350 ; i++) {
+    penRGB(red, green, blue, 0.5);
+    moveTo(306, 27);
+    turnTo(i);
+    penDown();
+    penWidth(1);
+    moveForward(randomNumber(30, 150));
+    penUp();
+  }
+}
+//Draw a cloud. -Freddie
+function cloud(size) {
+  penUp();
+  penRGB(255, 255, 255, 0.93);
+  penDown();
+  turnTo(0);
+  dot(40);
+  turnRight(90);
+  moveForward(size);
+  dot(45);
+  moveForward(size);
+  dot(30);
+}
+//Draw a few clouds. -Freddie
+function drawclouds() {
+  for (var i = 0; i < 4; i++) {
+    penUp();
+    moveTo(randomNumber(1, 250), randomNumber(1, 218));
+    penDown();
+    cloud();
+  }
+}
+//Draws a river in a different place. - Ashly
+function river() {
+  moveTo(randomNumber(1, 315), 460);
+  penRGB(25, 120, 130, 0.90);
+  penDown();
+  turnTo(0);
+  penWidth(40);
+  arcLeft(90, 25);
+  arcRight(90, 25);
+  arcLeft(90, 25);
+}
+//Draws a couple of trees in different places. -Ashly
+function drawtrees() {
+  for (var i = 0; i < 3; i++) {
+    penUp();
+    moveTo(randomNumber(1, 315), randomNumber(370, 450));
+    penDown();
+    Tree();
+  }
+}
+//Draws a tree with a different color. -Ashly
+function Tree() {
+  turnRight(0);
+  turnTo(360);
+  penDown();
+  penWidth(15);
+  penColor("brown");
+  moveForward(50);
+  penRGB(randomNumber(176, 235), randomNumber(159, 197), randomNumber(47, 91), 1);
+  dot(39);
+}
+//Draws lots of leaves in different places. -Ashly
+function drawleaves() {
+  for (var i = 0; i < 6; i++) {
+    penUp();
+    moveTo(randomNumber(1, 340), randomNumber(317, 449));
+    penDown();
+    leave();
+  }
+}
+//Draws haf of a leave.-Ashly 
+function halfleave(size) {
+  for (var i = 0; i < 11; i++) {
+    penRGB(randomNumber(158, 255), randomNumber(118, 183), randomNumber(55, 83), 0.20);
+    penWidth(10);
+    turnLeft(50);
+    moveForward(size);
+    turnLeft(120);
+    moveForward(size);
+    turnRight(160);
+    moveForward(size);
+  }
+}
+//Finishes drawing the leave. -Ashly
+function leave() {
+  halfleave(3);
+  turnLeft(70);
+  halfleave(3);
+  penUp();
+  turnRight(180);
+  moveForward(15);
+  dot(10);
+  penUp();
+  moveBackward(10);
+  penWidth(1);
+  penRGB(0, 0, 0, 0.60);
+  penDown();
+  moveForward(28);
+  moveBackward(24);
+  arcRight(30, 25);
+  moveForward(5);
+  moveBackward(17);
+  turnLeft(60);
+  moveForward(10);
+  hide();
+}
+//Draws a rock in a different shade of gray. -Ashly
+function rock() {
+  penRGB(randomNumber(97, 128), randomNumber(90, 120), randomNumber(73, 103));
+  dot(15);
+  turnRight(90);
+  moveForward(10);
+  dot(15);
+  turnRight(90);
+  moveForward(10);
+  dot(20);
+}
+//Draws lots of rocks in different places. -Ashly
+function drawrocks() {
+  for (var i = 0; i < 4; i++) {
+    turnTo(0);
+    penUp();
+    moveTo(randomNumber(1, 315), randomNumber(370, 450));
+    penDown();
+    rock();
+  }
+}
+
