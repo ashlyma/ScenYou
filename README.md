@@ -3,7 +3,7 @@
 Team members:
 
 Ashly Martinez
-Freddie Spitznagel
+and Freddie Spitznagel
 ## Inspiration
 
 One of our team member's have always wanted to created a game where every time you refresh it changes the layout of the image. Finding this hackathon gave us inspiration to create a game that when you refresh you get a different layout every time.
